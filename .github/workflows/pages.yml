@@ -30,6 +30,8 @@ jobs:
       - run: pnpm build
         env:
           GITHUB_PAGES: 'true'
+      - name: Place assets at the Pages root
+        run: cp -R dist/client/onepage/_next dist/client/_next
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
